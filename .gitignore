@@ -1,2 +1,9 @@
 EShopping.Core/obj/
 .vs/
+EShopping.Core/bin/
+Framework.Core/GenericRepositoryEntityFramework/bin/Debug/netcoreapp3.1/GenericRepositoryEntityFramework.deps.json
+Framework.Core/GenericRepositoryEntityFramework/bin/Debug/netcoreapp3.1/GenericRepositoryEntityFramework.dll
+Framework.Core/GenericRepositoryEntityFramework/bin/
+Framework.Core/GenericRepositoryEntityFramework/obj/
+Framework.Core/SharedKernel/bin/
+Framework.Core/SharedKernel/obj/
