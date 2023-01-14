@@ -7,3 +7,5 @@ Framework.Core/GenericRepositoryEntityFramework/bin/
 Framework.Core/GenericRepositoryEntityFramework/obj/
 Framework.Core/SharedKernel/bin/
 Framework.Core/SharedKernel/obj/
+EShopping.UnitTests/obj/
+EShopping.UnitTests/bin/
