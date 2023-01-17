@@ -9,3 +9,5 @@ Framework.Core/SharedKernel/bin/
 Framework.Core/SharedKernel/obj/
 EShopping.UnitTests/obj/
 EShopping.UnitTests/bin/
+EShopping.WebAPI/bin/
+EShopping.WebAPI/obj/
