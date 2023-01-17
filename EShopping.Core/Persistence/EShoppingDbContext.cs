@@ -7,14 +7,14 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EShopping.Core.Persistance
+namespace EShopping.Core.Persistence
 {
-    public class EShoppingTutorialDbContext : DbContext
+    public class EShoppingDbContext : DbContext
     {
         public virtual DbSet<Order> Orders { get; set; }
 
-        public EShoppingTutorialDbContext
-        (DbContextOptions<EShoppingTutorialDbContext> dbContextOptions)
+        public EShoppingDbContext
+        (DbContextOptions<EShoppingDbContext> dbContextOptions)
             : base(dbContextOptions)
         {
 

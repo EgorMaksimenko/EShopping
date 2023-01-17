@@ -14,4 +14,14 @@
     <PackageReference Include="coverlet.collector" Version="3.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EShopping.Core\EShopping.Core.csproj" />
+    <ProjectReference Include="..\Framework.Core\GenericRepositoryEntityFramework\GenericRepositoryEntityFramework.csproj" />
+    <ProjectReference Include="..\Framework.Core\SharedKernel\SharedKernel.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EShopping.Core.Persistance.Mappings
+namespace EShopping.Core.Persistence.Mappings
 {
     public class OrderMapConfig : IEntityTypeConfiguration<Order>
     {
