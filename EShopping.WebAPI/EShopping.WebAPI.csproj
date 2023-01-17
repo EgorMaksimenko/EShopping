@@ -33,4 +33,10 @@
     <Folder Include="Models\OrderModels\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="EShopping.WebAPI.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

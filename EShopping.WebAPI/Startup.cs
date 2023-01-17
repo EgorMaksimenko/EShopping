@@ -108,7 +108,7 @@ namespace EShoppingWebAPI
             // Register the Swagger generator and the Swagger UI middlewares
             //Omitted app.UseOpenApi();
 
-            //Omitted app.UseSwaggerUi3();
+            app.UseSwaggerUI();
 
             app.UseRouting();
 
