@@ -8,6 +8,8 @@ import { AddOrderComponent } from './add-order/add-order.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { DeleteOrderComponent } from './delete-order/delete-order.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,15 @@ import { DeleteOrderComponent } from './delete-order/delete-order.component';
     AddOrderComponent,
     EditOrderComponent,
     ViewOrderComponent,
-    DeleteOrderComponent
+    DeleteOrderComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      positionClass :'toast-bottom-right'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

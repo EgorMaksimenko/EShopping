@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'ViewOrder/:orderId', component: ViewOrderComponent },
   { path: 'AddOrder', component: AddOrderComponent },
-  { path: 'EditOrder/:orderId', component: EditOrderComponent } 
+  { path: 'EditOrder/:orderId', component: EditOrderComponent } ,
   { path: 'DeleteOrder/:orderId', component: DeleteOrderComponent } 
 ];
 
