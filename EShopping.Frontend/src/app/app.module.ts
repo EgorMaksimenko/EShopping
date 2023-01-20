@@ -10,6 +10,7 @@ import { ViewOrderComponent } from './view-order/view-order.component';
 import { DeleteOrderComponent } from './delete-order/delete-order.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule ,
     ToastrModule.forRoot({
       positionClass :'toast-bottom-right'
     })

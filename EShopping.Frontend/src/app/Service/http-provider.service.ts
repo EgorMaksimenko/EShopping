@@ -8,7 +8,7 @@ var httpLink = {
   getAllOrder: apiUrl + "/api/Order/GetAll",
   deleteOrderById: apiUrl + "/api/Order/deleteOrderById",
   getOrderDetailById: apiUrl + "/api/Order/getOrderDetailById",
-  saveOrder: apiUrl + "/api/Order/saveOrder"
+  saveOrder: apiUrl + "/api/Order/Add"
 }
 @Injectable({
   providedIn: 'root'

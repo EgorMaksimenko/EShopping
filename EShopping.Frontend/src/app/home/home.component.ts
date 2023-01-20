@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
       if (data != null && data.body != null) {
         var resultData = data.body;
         if (resultData) {
-          this.orderList = resultData;
+          this.orderList = resultData.entities;
         }
       }
     },

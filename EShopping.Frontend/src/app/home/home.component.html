@@ -29,14 +29,14 @@
             <tr *ngFor="let order of orderList" class="center-align">
               <td>{{ order.trackingNumber }}</td>
               <td>{{ order.shippingAdress }}</td>
-              <td>{{ order.orderDate }}</td>
-              <td>{{ order.orderDate }}</td>
-              <td>{{ order.orderDate }}</td>
+              <td>{{ order.orderItems[0].productId }}</td>
+              <td>{{ order.orderItems[0].price.amount }}</td>
+              <td>{{ order.orderItems[0].price.unit }}</td>
               <td>{{ order.orderDate }}</td>
               <td>
-                <a href="#" [routerLink]="['/ViewOrder/', order.id]" class="btn"><i class='fas fa-eye view'></i></a>
-                <a href="#" [routerLink]="['/EditOrder/', order.id]" class="btn"><i class="fa fa-edit edit"></i></a>
-                <button type="button" (click)="deleteOrderConfirmation(order)" class="btn"><i class='fas fa-trash-alt delete'></i></button>
+                <a href="#" [routerLink]="['/ViewOrder/', order.id]" class="btn">View</a>
+                <a href="#" [routerLink]="['/EditOrder/', order.id]" class="btn">Edit</a>
+                <button type="button" (click)="deleteOrderConfirmation(order)" class="btn">Delete</button>
               </td>
             </tr>
             <tr>
