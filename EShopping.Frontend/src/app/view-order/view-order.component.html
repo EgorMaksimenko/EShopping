@@ -1,1 +1,36 @@
-<p>view-order works!</p>
+<div class="container-xl">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-6">
+              <h4><b>View Order</b></h4>
+            </div>
+            <div class="col-sm-6">
+              <a href="#" routerLink="/Home" class="btn btn-success back"><i class="fas fa-arrow-circle-lef"></i>  Back</a>
+            </div>
+          </div>
+        </div>       
+        <table class="table table-striped table-hover table-bordered table-conten">
+          <tbody>
+            <tr>
+              <td><label><b>ID</b></label></td>
+              <td><span>{{ orderDetail.id }}</span></td>
+            </tr>
+            <tr>
+              <td><label><b>Tracking Number</b></label> </td>
+              <td><span>{{ orderDetail.trackingNumber }}</span></td>
+            </tr>
+            <tr>
+              <td> <label><b>Shipping Adress</b></label></td>
+              <td> <span>{{ orderDetail.shippingAdress }}</span></td>
+            </tr>
+            <tr>
+              <td> <label><b>Order Date</b></label></td>
+              <td><span>{{ orderDetail.orderDate }}</span></td>
+            </tr>
+          </tbody>
+        </table>       
+      </div>
+    </div>
+  </div>

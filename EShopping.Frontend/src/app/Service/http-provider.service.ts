@@ -7,7 +7,7 @@ var apiUrl = "https://localhost:5001";
 var httpLink = {
   getAllOrder: apiUrl + "/api/Order/GetAll",
   deleteOrderById: apiUrl + "/api/Order/deleteOrderById",
-  getOrderDetailById: apiUrl + "/api/Order/getOrderDetailById",
+  getOrderDetailById: apiUrl + "/api/Order/",
   saveOrder: apiUrl + "/api/Order/Add"
 }
 @Injectable({
@@ -23,7 +23,7 @@ export class HttpProviderService {
     return this.webApiService.post(httpLink.deleteOrderById + '?orderId=' + model, "");
   }
   public getOrderDetailById(model: any): Observable<any> {
-    return this.webApiService.get(httpLink.getOrderDetailById + '?orderId=' + model);
+    return this.webApiService.get(httpLink.getOrderDetailById + model);
   }
   public saveOrder(model: any): Observable<any> {
     return this.webApiService.post(httpLink.saveOrder, model);
