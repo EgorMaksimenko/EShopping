@@ -20,12 +20,7 @@
               </div>
               <div class="col-sm-9">
                 <input type="text" class="form-control" id="ID" required maxlength="255"
-                  [(ngModel)]="editOrderForm.id" name="ID" #ID="ngModel">
-                <div *ngIf="ID.errors && isSubmitted" class="alert alert-danger validationError">
-                  <div [hidden]="!ID.errors?.['required']">
-                    ID is required
-                  </div>
-                </div>
+                  [(ngModel)]="editOrderForm.id" name="ID" #ID="ngModel" readonly="true" disabled="true">
               </div>
             </div>
             <div class="form-group p-10 row">
@@ -34,12 +29,7 @@
               </div>
               <div class="col-sm-9">
                 <input type="text" class="form-control" id="TrackingNumber" required maxlength="255"
-                  [(ngModel)]="editOrderForm.trackingNumber" name="TrackingNumber" #TrackingNumber="ngModel">
-                <div *ngIf="TrackingNumber.errors && isSubmitted" class="alert alert-danger validationError">
-                  <div [hidden]="!TrackingNumber.errors?.['required']">
-                    Tracking Number is required
-                  </div>
-                </div>
+                  [(ngModel)]="editOrderForm.trackingNumber" name="TrackingNumber" #TrackingNumber="ngModel" readonly="true" disabled="true">
               </div>
             </div>
             <div class="form-group p-10 row">
@@ -49,11 +39,11 @@
               <div class="col-sm-9">
                 <input type="text" class="form-control" id="ShippingAdress" required maxlength="255"
                   [(ngModel)]="editOrderForm.shippingAdress" name="ShippingAdress" #ShippingAdress="ngModel">
-                <div *ngIf="ShippingAdress.errors && isSubmitted" class="alert alert-danger validationError">
-                  <div [hidden]="!ShippingAdress.errors?.['required']">
-                    ShippingAdress is required
+                  <div *ngIf="validateResult?.shippingAdress! && isSubmitted" class="alert alert-danger validationError">
+                    <div [hidden]="!validateResult?.shippingAdress">
+                      {{validateResult?.shippingAdress}}
+                    </div>
                   </div>
-                </div>
               </div>
             </div>
             <div class="form-group p-10 row">
@@ -61,12 +51,7 @@
                 <label class="p-t-b-10">Product Id<span class="requiredStar">*</span></label>
               </div>
               <div class="col-sm-9">
-                <input type="number" class="form-control" id="ProductId" required [(ngModel)]="editOrderForm.orderItemsDtoModel[0].productId" name="ProductId" #ProductId="ngModel">
-                <div *ngIf="ProductId.errors && isSubmitted" class="alert alert-danger validationError">
-                  <div [hidden]="!ProductId.errors?.['required']">
-                    Product Id is required
-                  </div>
-                </div>
+                <input type="number" class="form-control" id="ProductId" [(ngModel)]="editOrderForm.orderItemsDtoModel[0].productId" name="ProductId" #ProductId="ngModel">
               </div>
             </div>
             <div class="form-group p-10 row">
@@ -75,11 +60,6 @@
               </div>
               <div class="col-sm-9">
                 <input type="number" class="form-control" id="Amount" required [(ngModel)]="editOrderForm.orderItemsDtoModel[0].price.amount" name="Amount" #Amount="ngModel">
-                <div *ngIf="Amount.errors && isSubmitted" class="alert alert-danger validationError">
-                  <div [hidden]="!Amount.errors?.['required']">
-                    Amount is required
-                  </div>
-                </div>
               </div>
             </div>
             <div class="form-group p-10 row">
@@ -88,9 +68,9 @@
               </div>
               <div class="col-sm-9">
                 <input type="number" class="form-control" id="Unit" required [(ngModel)]="editOrderForm.orderItemsDtoModel[0].price.unit" name="Unit" #Unit="ngModel">
-                <div *ngIf="Unit.errors && isSubmitted" class="alert alert-danger validationError">
-                  <div [hidden]="!Unit.errors?.['required']">
-                    Unit is required
+                <div *ngIf="validateResult?.orderItemsDtoModel && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!validateResult?.orderItemsDtoModel">
+                    {{validateResult?.orderItemsDtoModel}}
                   </div>
                 </div>
               </div>
@@ -100,18 +80,13 @@
                 <label class="p-t-b-10">Order Date<span class="requiredStar">*</span></label>
               </div>
               <div class="col-sm-9">
-                <input type="text" class="form-control" id="OrderDate" required maxlength="256"
+                <input type="text" class="form-control" id="OrderDate" readonly="true" disabled="true"
                   [(ngModel)]="editOrderForm.orderDate" name="OrderDate" #OrderDate="ngModel">
-                <div *ngIf="OrderDate.errors && isSubmitted" class="alert alert-danger validationError">
-                  <div [hidden]="!OrderDate.errors?.['required']">
-                    OrderDate is required
-                  </div>
-                </div>
               </div>
             </div>
           </div>
           <div class="table-footer">
-            <button class="btn btn-success" (click)="EditOrder(orderForm.form.valid)">Submit</button>
+            <button class="btn btn-success" (click)="EditOrder()">Submit</button>
           </div>
         </form>
       </div>
