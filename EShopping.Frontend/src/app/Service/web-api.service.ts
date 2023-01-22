@@ -50,6 +50,40 @@ export class WebApiService {
         catchError(this.handleError)
       );
   }
+
+  put(url: string, model: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }), 
+     observe: "response" as 'body'
+    };
+    return this.httpClient.put(
+      url,
+      model,
+      httpOptions)
+      .pipe(
+        map((response: any) => this.ReturnResponseData(response)),
+        catchError(this.handleError)
+      );
+  }
+
+  delete(url: string, model: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }), 
+     observe: "response" as 'body'
+    };
+    return this.httpClient.delete(
+      url,
+      httpOptions)
+      .pipe(
+        map((response: any) => this.ReturnResponseData(response)),
+        catchError(this.handleError)
+      );
+  }
+  
   private ReturnResponseData(response: any) {
     return response;
   }

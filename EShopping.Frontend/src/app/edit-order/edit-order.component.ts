@@ -34,6 +34,10 @@ export class EditOrderComponent implements OnInit {
           this.editOrderForm.trackingNumber = resultData.trackingNumber;
           this.editOrderForm.shippingAdress = resultData.shippingAdress;
           this.editOrderForm.orderDate = resultData.orderDate;
+          this.editOrderForm.orderItemsDtoModel[0].id = resultData.orderItems[0].id;
+          this.editOrderForm.orderItemsDtoModel[0].productId = resultData.orderItems[0].productId;
+          this.editOrderForm.orderItemsDtoModel[0].price.amount = resultData.orderItems[0].price.amount;
+          this.editOrderForm.orderItemsDtoModel[0].price.unit = resultData.orderItems[0].price.unit;
         }
       }
     },
@@ -43,17 +47,12 @@ export class EditOrderComponent implements OnInit {
   EditOrder(isValid: any) {
     this.isSubmitted = true;
     if (isValid) {
-      this.httpProvider.saveOrder(this.editOrderForm).subscribe(async data => {
-        if (data != null && data.body != null) {
-          var resultData = data.body;
-          if (resultData != null && resultData.isSuccess) {
-            if (resultData != null && resultData.isSuccess) {
-              this.toastr.success(resultData.message);
-              setTimeout(() => {
-                this.router.navigate(['/Home']);
-              }, 500);
-            }
-          }
+      this.httpProvider.updateOrder(this.editOrderForm).subscribe(async data => {
+        if (data != null && data.status == 200) {
+          this.toastr.success("Updated successfully.");
+            setTimeout(() => {
+              this.router.navigate(['/Home']);
+            }, 500);
         }
       },
         async error => {
@@ -66,9 +65,21 @@ export class EditOrderComponent implements OnInit {
   }
 }
 
+type Price = {amount: number, unit: number};
+type OrderItemsDtoModel = Array<{id: number, productId: number, price: Price}>;
 export class orderForm {
   id: number = 0;
   trackingNumber: string = "";
   shippingAdress: string = "";
   orderDate: string = "";
+  orderItemsDtoModel: OrderItemsDtoModel = [
+    {
+      id: 0,
+      productId: 0,
+      price: {
+        amount: 0,
+        unit: 0,
+      }
+    }
+  ];
 }

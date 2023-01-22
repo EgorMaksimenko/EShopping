@@ -26,6 +26,18 @@
               <td> <span>{{ orderDetail.shippingAdress }}</span></td>
             </tr>
             <tr>
+              <td> <label><b>Product Id</b></label></td>
+              <td> <span>{{ orderDetail.orderItems[0].productId }}</span></td>
+            </tr>
+            <tr>
+              <td> <label><b>Amount</b></label></td>
+              <td> <span>{{ orderDetail.orderItems[0].price.amount }}</span></td>
+            </tr>
+            <tr>
+              <td> <label><b>Unit</b></label></td>
+              <td> <span>{{ orderDetail.orderItems[0].price.unit }}</span></td>
+            </tr>
+            <tr>
               <td> <label><b>Order Date</b></label></td>
               <td><span>{{ orderDetail.orderDate }}</span></td>
             </tr>

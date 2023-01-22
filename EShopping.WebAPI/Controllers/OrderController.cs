@@ -82,7 +82,7 @@ namespace EShoppingWebAPI.Controllers
             return Ok();
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("Update")]
         public async Task<IActionResult> Update([FromBody] OrderUpdateRequestModel orderResource)
         {

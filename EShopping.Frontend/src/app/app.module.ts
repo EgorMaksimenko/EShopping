@@ -7,11 +7,11 @@ import { HomeComponent } from './home/home.component';
 import { AddOrderComponent } from './add-order/add-order.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
-import { DeleteOrderComponent } from './delete-order/delete-order.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddOrderComponent,
     EditOrderComponent,
     ViewOrderComponent,
-    DeleteOrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule ,
     NgbModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass :'toast-bottom-right'
     })

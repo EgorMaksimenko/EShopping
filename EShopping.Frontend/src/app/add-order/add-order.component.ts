@@ -23,16 +23,11 @@ export class AddOrderComponent implements OnInit {
     this.isSubmitted = true;
     if (isValid) {
       this.httpProvider.saveOrder(this.addOrderForm).subscribe(async data => {
-        if (data != null && data.body != null) {
-          if (data != null && data.body != null) {
-            var resultData = data.body;
-            if (resultData != null && resultData.isSuccess) {
-              this.toastr.success(resultData.message);
-              setTimeout(() => {
-                this.router.navigate(['/Home']);
-              }, 500);
-            }
-          }
+        if (data != null && data.status == 200) {
+          this.toastr.success("Added successfully.");
+          setTimeout(() => {
+            this.router.navigate(['/Home']);
+          }, 500);
         }
       },
         async error => {

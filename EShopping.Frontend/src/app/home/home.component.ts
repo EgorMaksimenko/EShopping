@@ -78,12 +78,9 @@ export class HomeComponent implements OnInit {
 
   deleteOrder(order: any) {
     this.httpProvider.deleteOrderById(order.id).subscribe((data : any) => {
-      if (data != null && data.body != null) {
-        var resultData = data.body;
-        if (resultData != null && resultData.isSuccess) {
-          this.toastr.success(resultData.message);
-          this.getAllOrder();
-        }
+      if (data != null && data.status == 200) {
+        this.toastr.success("Deleted successfully.");
+        this.getAllOrder();
       }
     },
     (error : any) => {});
