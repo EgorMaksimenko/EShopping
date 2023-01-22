@@ -18,10 +18,8 @@ namespace EShopping.Core.Domain.Entities
 
         public DateTime OrderDate { get; protected set; }
 
-
         private List<OrderItem> _orderItems;
         public ICollection<OrderItem> OrderItems { get { return _orderItems.AsReadOnly(); } }
-
 
         protected Order() // For Entity Framework Core
         {

@@ -19,6 +19,7 @@ namespace GenericRepositoryEntityFramework
 
         Task<TEntity> GetByIdAsync(object id);
 
+        Task<TEntity> GetByIdAsync<TProperty>(Expression<Func<TEntity, TProperty>> include, Expression<Func<TEntity, bool>> where);
 
         Task<IEnumerable<TEntity>> GetAllAsync();
 

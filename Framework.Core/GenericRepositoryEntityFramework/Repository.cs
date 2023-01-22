@@ -49,6 +49,14 @@ namespace GenericRepositoryEntityFramework
             return await _dbSet.FindAsync(id).ConfigureAwait(false);
         }
 
+        public async Task<TEntity> GetByIdAsync<TProperty>(Expression<Func<TEntity, TProperty>> include, Expression<Func<TEntity, bool>> where)
+        {
+            var entity = await Context.Set<TEntity>()
+                .Include(include)
+                .FirstOrDefaultAsync(where);
+            return entity;
+        }
+
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await _dbSet.ToListAsync().ConfigureAwait(false);
@@ -139,6 +147,5 @@ namespace GenericRepositoryEntityFramework
         {
             return query.Skip((queryObjectParams.PageNumber - 1) * queryObjectParams.PageSize).Take(queryObjectParams.PageSize);
         }
-
     }
 }

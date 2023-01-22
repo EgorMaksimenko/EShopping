@@ -29,8 +29,7 @@ namespace EShoppingWebAPI.Controllers
         [Route("{id}")]
         public async Task<IActionResult> GetOrder(int id)
         {
-            var order = await _unitOfWork.OrderRepository.GetByIdAsync(id).ConfigureAwait(false);
-
+            var order = await _unitOfWork.OrderRepository.GetByIdAsync(e => e.OrderItems, e => e.Id == id).ConfigureAwait(false);
             if (order == null)
                 return NotFound();
 
@@ -77,6 +76,19 @@ namespace EShoppingWebAPI.Controllers
             var order = _mapper.Map<OrderSaveRequestModel, Order>(orderResource);
 
             _unitOfWork.OrderRepository.Add(order);
+
+            await _unitOfWork.CompleteAsync().ConfigureAwait(false);
+
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("Update")]
+        public async Task<IActionResult> Update([FromBody] OrderUpdateRequestModel orderResource)
+        {
+            var order = _mapper.Map<OrderUpdateRequestModel, Order>(orderResource);
+
+            _unitOfWork.OrderRepository.Update(order);
 
             await _unitOfWork.CompleteAsync().ConfigureAwait(false);
 
