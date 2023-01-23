@@ -10,16 +10,18 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-#COPY ["EShopping.WebAPI/EShopping.WebAPI.csproj", "EShopping.WebAPI/"]
-COPY ["EShopping.WebAPI.csproj", "./"]
-RUN dotnet restore "./EShopping.WebAPI.csproj"
+COPY *.sln .
+COPY ["Framework.Core/GenericRepositoryEntityFramework/*.csproj", "Framework.Core/GenericRepositoryEntityFramework/"]
+COPY ["Framework.Core/SharedKernel/*.csproj", "Framework.Core/SharedKernel/"]
+COPY ["EShopping.Core/EShopping.Core.csproj", "EShopping.Core/"]
+COPY ["EShopping.WebAPI/EShopping.WebAPI.csproj", "EShopping.WebAPI/"]
+RUN dotnet restore "EShopping.WebAPI/EShopping.WebAPI.csproj"
 COPY . .
-#WORKDIR "/src/EShopping.WebAPI"
-WORKDIR "/src"
-RUN dotnet build "./EShopping.WebAPI.csproj" -c Release -o /app/build
+WORKDIR "/src/EShopping.WebAPI"
+RUN dotnet build "EShopping.WebAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "./EShopping.WebAPI.csproj" -c Release -o /app/publish
+RUN dotnet publish "EShopping.WebAPI.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
